@@ -1,7 +1,5 @@
 
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import { IconButton } from "@mui/material";
+import { FormControlLabel, Switch } from "@mui/material";
 import { useEffect } from "react";
 import { useThemeContext } from "../context/ThemeContext";
 
@@ -25,13 +23,18 @@ const ColorMode = () => {
     //     setThemeMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
     // }
     return (
-        <IconButton onClick={() => toggleTheme()}>
-            {themeMode === "dark" ? (
-                <DarkModeOutlinedIcon />
-            ) : (
-                <LightModeOutlinedIcon />
-            )}
-        </IconButton>
+        <>
+
+            {/* <IconButton onClick={() => toggleTheme()}>
+                {themeMode === "dark" ? (
+                    <DarkModeOutlinedIcon />
+                ) : (
+                    <LightModeOutlinedIcon />
+                )}
+            </IconButton> */}
+            <FormControlLabel control={<Switch checked={themeMode === "dark"} />} onClick={() => toggleTheme()} label={themeMode === "dark" ? "Dark Mode" : "Light Mode"} />
+
+        </>
     );
 };
 
