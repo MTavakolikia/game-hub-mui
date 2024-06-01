@@ -1,7 +1,13 @@
+import useGenres from "../../hooks/useGenres"
 
 const Sidebar = () => {
+    const { genres, loading, error } = useGenres();
     return (
-        <>Sidebar</>
+        <aside>
+            <ul>
+                {genres.map(item => <li key={item.id}>{item.name}</li>)}
+            </ul>
+        </aside>
     )
 }
 
