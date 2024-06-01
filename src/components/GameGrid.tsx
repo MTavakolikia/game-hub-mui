@@ -9,7 +9,7 @@ const GameGrid = () => {
         <div className='grid grid-cols-3 gap-4'>
             {error && <p>{error}</p>}
             {games.map(i =>
-                <GameCard key={i.id} title={i.name} imgUrl={i.background_image} score={i.metacritic} />
+                <GameCard key={i.id} games={i} />
             )}
         </div>
     )
