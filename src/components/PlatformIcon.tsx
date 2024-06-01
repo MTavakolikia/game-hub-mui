@@ -29,7 +29,7 @@ const PlatformIcon = ({ platforms = [] }) => {
                 const IconComponent = iconMap[platform.slug];
                 return (
                     <li key={platform.id}>
-                        <IconComponent color="gray" fontSize="" />
+                        <IconComponent color="gray" fontSize="large" />
                     </li>
                 );
             })}

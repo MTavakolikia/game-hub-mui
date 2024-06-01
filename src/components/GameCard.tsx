@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Game } from '../hooks/useGames';
 import PlatformIcon from './PlatformIcon';
+import getCroppedImageUrl from '../services/image-url';
 
 
 
@@ -12,10 +13,10 @@ export default function GameCard({ games }: Game) {
     const { name, background_image, metacritic, parent_platforms } = games
     console.log(parent_platforms);
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <>
             <CardMedia
                 sx={{ height: 200 }}
-                image={background_image}
+                image={getCroppedImageUrl(background_image)}
                 title="green iguana"
             />
             <CardContent>
@@ -33,6 +34,6 @@ export default function GameCard({ games }: Game) {
                 <PlatformIcon platforms={parent_platforms.map(p => p.platform)} />
                 <p className=' bg-green-300 bg-opacity-20 text-green-200 px-2 rounded'>{metacritic}</p>
             </CardActions>
-        </Card>
+        </>
     );
 }
