@@ -3,3 +3,8 @@ export interface Platform {
     name: string;
     slug: string;
 }
+
+export interface FetchPlatformResponse {
+    count: number,
+    results: Platform[]
+}

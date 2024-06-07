@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar/Navbar";
 import { useState } from "react";
 import { Genre } from "../models/genre";
 import GameGrid from "../components/GameGrid";
+import PlatformSelector from "../components/PlatformSelector";
 
 const DashboardLayout = () => {
     const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
@@ -18,6 +19,7 @@ const DashboardLayout = () => {
                 </div>
                 <div className="col-span-12 md:col-span-10">
                     {/* <Outlet  /> */}
+                    <PlatformSelector />
                     <GameGrid selectedGenre={selectedGenre} />
                 </div>
             </div>
