@@ -4,10 +4,11 @@ import getCroppedImageUrl from "../../services/image-url";
 import { Genre } from "../../models/genre";
 
 interface Props {
-    onSelectedGenre: (genre: Genre) => void
+    onSelectedGenre: (genre: Genre) => void;
+    selectedGenre: Genre
 }
 
-const Sidebar = ({ onSelectedGenre }: Props) => {
+const Sidebar = ({ onSelectedGenre, selectedGenre }: Props) => {
     const { data, loading, error } = useGenres();
 
     if (error) return null
@@ -24,7 +25,7 @@ const Sidebar = ({ onSelectedGenre }: Props) => {
                         key={item.id}
                         onClick={() => onSelectedGenre(item)
                         }
-                    // selected={selectedIndex === 0}
+                        selected={selectedGenre?.id == item.id}
                     // onClick={(event) => handleListItemClick(event, 0)}
                     >
                         <Avatar alt={item.name} src={getCroppedImageUrl(item.image_background)} variant="rounded" />
