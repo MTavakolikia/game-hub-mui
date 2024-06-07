@@ -1,9 +1,8 @@
-import React from 'react'
-import GameGrid from '../components/GameGrid'
+// import GameGrid from '../components/GameGrid'
 
 const Dashboard = () => {
     return (
-        <><GameGrid /></>
+        <></>
     )
 }
 

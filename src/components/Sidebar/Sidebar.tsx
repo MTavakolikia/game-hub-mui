@@ -1,8 +1,13 @@
 import { Avatar, Box, CircularProgress, List, ListItemButton, ListItemText } from "@mui/material";
 import useGenres from "../../hooks/useGenres"
 import getCroppedImageUrl from "../../services/image-url";
+import { Genre } from "../../models/genre";
 
-const Sidebar = () => {
+interface Props {
+    onSelectedGenre: (genre: Genre) => void
+}
+
+const Sidebar = ({ onSelectedGenre }: Props) => {
     const { data, loading, error } = useGenres();
 
     if (error) return null
@@ -17,6 +22,8 @@ const Sidebar = () => {
                 {data.map(item =>
                     <ListItemButton
                         key={item.id}
+                        onClick={() => onSelectedGenre(item)
+                        }
                     // selected={selectedIndex === 0}
                     // onClick={(event) => handleListItemClick(event, 0)}
                     >
