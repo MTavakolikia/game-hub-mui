@@ -1,9 +1,8 @@
 import useData from "./useData";
 import { Game } from "../models/game";
-import { Genre } from "../models/genre";
-import { Platform } from "../models/platform";
+import { GameQuery } from "../layouts/DashboardLayout";
 
 
-const useGames = (selectedGenre: Genre | null, selectedPlatform: Platform | null) => useData<Game>("/games", { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } }, [selectedGenre?.id, selectedPlatform?.id])
+const useGames = (gameQuery: GameQuery) => useData<Game>("/games", { params: { genres: gameQuery.genre?.id, platforms: gameQuery.platform?.id } }, [gameQuery])
 
 export default useGames

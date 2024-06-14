@@ -3,8 +3,9 @@ import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import usePlatforms from '../hooks/usePlatforms';
+import { Platform } from '../models/platform';
 
 interface Props {
     onSelectedPlatform: (platform: Platform) => void
@@ -18,7 +19,7 @@ export default function PlatformSelector({ onSelectedPlatform }: Props) {
 
     if (error && loading) return null
     return (
-        <Box sx={{ width: 180 }}>
+        <Box sx={{ width: 180, marginBottom: "15px" }}>
             <FormControl sx={{ minWidth: "180px" }}>
                 <InputLabel id="platform-label">Platforms</InputLabel>
                 <Select

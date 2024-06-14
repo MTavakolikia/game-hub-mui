@@ -14,6 +14,8 @@ const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?:
     const [loading, setLoading] = useState(true)
     const controller = new AbortController();
     useEffect(() => {
+        setLoading(true)
+
         apiClient.get<FetchGamesResponse<T>>(endpoint, { signal: controller.signal, ...requestConfig }).then(res => {
             setData(res.data.results);
             setLoading(false)
