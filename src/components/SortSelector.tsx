@@ -5,29 +5,36 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+interface Props {
+    onSelectSortOrder: (sortOrder: string) => void
+    sortOrder: string
+}
 
+export default function SortSelector({ onSelectSortOrder }: Props) {
+    const [selectedSort, setSelectedSort] = React.useState({ value: "relevence", label: "Relevance" });
+    const sortOrders = [
+        { value: "relevence", label: "Relevance" },
+        { value: "-added", label: "Date added" },
+        { value: "name", label: "Name" },
+        { value: "-released", label: "Release date" },
+        // { value: "-metacritic", label: "Popularity" },
+        // { value: "-rating", label: "Average rating" },
+    ];
 
-export default function SortSelector() {
-    const [selectedSort, setSelectedSort] = React.useState('');
 
 
     return (
         <Box sx={{ width: 180 }}>
             <FormControl sx={{ minWidth: "180px" }}>
-                <InputLabel id="sort-selector-id">Sort Selector</InputLabel>
+                <InputLabel id="order-by-id">Order By</InputLabel>
                 <Select
-                    labelId="sort-selector-id"
-                    id="sort-selector-id"
+                    labelId="order-by-id"
+                    id="order-by-id"
                     value={selectedSort}
-                    label="Sort Selector"
+                    label="Order By"
                     onChange={(e) => setSelectedSort(e.target.value)}
                 >
-                    <MenuItem value={"relevance"}>Relevance</MenuItem>
-                    <MenuItem value={"date-added"}>Date added</MenuItem>
-                    <MenuItem value={"name"}>Name</MenuItem>
-                    <MenuItem value={"release-date"}>Release date</MenuItem>
-                    <MenuItem value={"popularity"}>Popularity</MenuItem>
-                    <MenuItem value={"average"}>Average</MenuItem>
+                    {sortOrders.map(item => <MenuItem onClick={() => onSelectSortOrder(item.value)} key={item.value} value={item.value}>{item.label}</MenuItem>)}
                 </Select>
             </FormControl>
         </Box>

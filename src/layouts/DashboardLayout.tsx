@@ -12,6 +12,7 @@ import SortSelector from "../components/SortSelector";
 export interface GameQuery {
     genre: Genre | null,
     platform: Platform | null
+    sortOrder: string
 }
 
 const DashboardLayout = () => {
@@ -33,7 +34,7 @@ const DashboardLayout = () => {
                     {/* <Outlet  /> */}
                     <Stack direction="row" sx={{ marginBottom: "15px", marginTop: "10px" }} spacing={2}>
                         <PlatformSelector onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
-                        <SortSelector />
+                        <SortSelector sortOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} />
                     </Stack>
 
 
