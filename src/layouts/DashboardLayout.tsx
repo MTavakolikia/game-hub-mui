@@ -5,9 +5,11 @@ import { useState } from "react";
 import { Genre } from "../models/genre";
 import GameGrid from "../components/GameGrid";
 import PlatformSelector from "../components/PlatformSelector";
+import { Platform } from "../models/platform";
 
 const DashboardLayout = () => {
     const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
+    const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null)
 
 
     return (
@@ -19,8 +21,8 @@ const DashboardLayout = () => {
                 </div>
                 <div className="col-span-12 md:col-span-10">
                     {/* <Outlet  /> */}
-                    <PlatformSelector />
-                    <GameGrid selectedGenre={selectedGenre} />
+                    <PlatformSelector onSelectedPlatform={(platform) => setSelectedPlatform(platform)} />
+                    <GameGrid selectedPlatform={selectedPlatform} selectedGenre={selectedGenre} />
                 </div>
             </div>
         </div>
