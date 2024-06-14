@@ -19,7 +19,7 @@ export default function PlatformSelector({ onSelectedPlatform }: Props) {
 
     if (error && loading) return null
     return (
-        <Box sx={{ width: 180, marginBottom: "15px" }}>
+        <Box sx={{ width: 180 }}>
             <FormControl sx={{ minWidth: "180px" }}>
                 <InputLabel id="platform-label">Platforms</InputLabel>
                 <Select

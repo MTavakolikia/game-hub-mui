@@ -6,6 +6,8 @@ import { Genre } from "../models/genre";
 import GameGrid from "../components/GameGrid";
 import PlatformSelector from "../components/PlatformSelector";
 import { Platform } from "../models/platform";
+import { Stack } from "@mui/material";
+import SortSelector from "../components/SortSelector";
 
 export interface GameQuery {
     genre: Genre | null,
@@ -29,7 +31,12 @@ const DashboardLayout = () => {
                 </div>
                 <div className="col-span-12 md:col-span-10 ">
                     {/* <Outlet  /> */}
-                    <PlatformSelector onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
+                    <Stack direction="row" sx={{ marginBottom: "15px", marginTop: "10px" }} spacing={2}>
+                        <PlatformSelector onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
+                        <SortSelector />
+                    </Stack>
+
+
                     <GameGrid gameQuery={gameQuery} />
                 </div>
             </div>
